@@ -7,19 +7,7 @@ A sample go module that I stood up quickly to learn how remote modules work in g
 From inside a go project,
 
 1. run `go get github.com/evenstephenr/go-logger@core`
-1. inside a `.go` file, just import the logger and then call it
-
-```go
-// $USERPROFILE/go/hello
-package main
-
-import "github.com/evenstephenr/go-logger"
-
-func main() {
-  logger.Info("inside main package", map[string]string{ "ts": time.Now().String() })
-}
-
-```
+1. you should see the dependency in your `go.mod` file
 
 ## Using this module
 
@@ -70,7 +58,7 @@ import (
 )
 
 func main() {
-	logger.ReportContext(logger.Debug("inside some function block"), map[string]string {
+  logger.ReportContext(logger.Debug("inside some function block"), map[string]string {
     "timestamp": time.Now().String()
 	})
 }
@@ -78,7 +66,7 @@ func main() {
 
 ## Debug logs
 
-The `Debug` error is a special error in this module. `Debug` errors will not be reported unless you add a `-d` or `-debug` flag to a go package invocation. If you are using your own reporter the `Debug` function returns an empty string when the package runtime does not include a debug flag.
+The `Debug` error is a special error in this module. `Debug` errors will not be reported unless you add a `-d` or `-debug` flag to a go package invocation. If you are using your own reporter, the `Debug` function returns an empty string when the package runtime does not include a debug flag. Neat.
 
 
 ```go
